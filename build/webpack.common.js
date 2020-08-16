@@ -43,7 +43,7 @@ module.exports = {
     new VueLoaderPlugin()
   ],
   resolve: {
-    // 项目中 import 路径的别名
+    extensions: ['.vue', '.js', '.json'],
     alias: {
       '@': path.resolve(__dirname, '../src')
     }

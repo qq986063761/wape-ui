@@ -22,7 +22,7 @@
 - npm i -D progress-bar-webpack-plugin rimraf
 
 ## 安装 demo 所需要的依赖
-- npm i -D html-webpack-plugin url-loader
+- npm i -D html-webpack-plugin url-loader vue-router
 
 # 发布到 npm 流程
 - 配置好 package.json 中的 name、version、main（用户 import 时的文件）

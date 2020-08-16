@@ -24,16 +24,25 @@
     "url": "https://github.com/qq986063761/wape-ui/issues"
   },
   "homepage": "https://github.com/qq986063761/wape-ui#readme",
+  "peerDependencies": {
+    "vue": "^2.5.17"
+  },
   "devDependencies": {
+    "ant-design-vue": "^1.6.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "css-loader": "^4.2.1",
     "html-webpack-plugin": "^4.3.0",
+    "node-sass": "^4.14.1",
     "progress-bar-webpack-plugin": "^2.1.0",
     "rimraf": "^3.0.2",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "vue": "^2.6.11",
     "vue-loader": "^15.9.3",
+    "vue-router": "^3.4.3",
     "vue-template-compiler": "^2.6.11",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",

@@ -40,9 +40,9 @@ module.exports = {
     })
   ],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '../src'),
+    extensions: commonConfig.resolve.extensions,
+    alias: Object.assign({
       'demo': path.resolve(__dirname, '../demo')
-    }
+    }, commonConfig.resolve.alias)
   }
 }
