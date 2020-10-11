@@ -13,7 +13,7 @@
 - npm i -D vue vue-template-compiler vue-loader
 
 ## 安装样式处理依赖 css、scss
-- npm i -D style-loader css-loader node-sass sass-loader
+- npm i -D style-loader css-loader node-sass sass-loader autoprefixer postcss-loader postcss-import
 
 ## 安装单元测试依赖 jest
 - npm i -D jest @vue/test-utils vue-jest babel-jest
