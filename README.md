@@ -7,7 +7,7 @@
 - npm i -D webpack webpack-cli webpack-dev-server
 
 ## 安装 es6 转 es5 依赖 babel
-- npm i -D babel-core babel-loader babel-preset-env
+- npm i -D babel-core@6.26.3 babel-loader@7.1.5 babel-preset-env@1.7.0
 
 ## 安装 vue 依赖
 - npm i -D vue vue-template-compiler vue-loader
