@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import textEllipsis from '../views/components/textEllipsis'
+import textEllipsis from '../views/textEllipsis'
 
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '/', redirect: '/textEllipsis' },
+  { 
+    path: '/',
+    redirect: '/textEllipsis'
+  },
   {
     path: '/textEllipsis',
     name: 'textEllipsis',
