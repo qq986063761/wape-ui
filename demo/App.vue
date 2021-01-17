@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     clickItem(item) {
+      if (this.$route.name === item.key) return
       this.$router.push({
         name: item.key
       })
@@ -65,11 +66,13 @@ body {
 
 .app-header {
   height: 55px;
+  padding: 0 20px;
   background-color: #4085ed;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   font-size: 30px;
   color: #fff;
   z-index: 1;
+  line-height: 55px;
   flex-shrink: 0;
 }
 
@@ -96,6 +99,10 @@ body {
 
   .menu-child {
     padding: 0 30px;
+    cursor: pointer;
+    &:hover {
+      color: #4085ed;
+    }
   }
 }
 
