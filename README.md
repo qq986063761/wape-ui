@@ -29,3 +29,11 @@
 - 执行 npm publish 将当前项目版本发布到 npm（需要登录 npm 账号）
 
 # 用户如何使用
+
+## 直接引入
+- import Wape from 'wape-ui/src/index.js'
+- Vue.use(Wape)
+
+## 按需引入
+- import { TextEllipsis } from 'wape-ui/src/index.js'
+- Vue.use(TextEllipsis)
