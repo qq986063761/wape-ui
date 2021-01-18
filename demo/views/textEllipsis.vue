@@ -6,6 +6,14 @@
       :content="content"
       @click.native="click"
     ></w-text-ellipsis>
+
+<pre class="code">
+  &lt;w-text-ellipsis
+    :line-height="30"
+    :rows="3"
+    :content="content"
+  &gt;&lt;/w-text-ellipsis&gt;
+</pre>
   </div>
 </template>
 

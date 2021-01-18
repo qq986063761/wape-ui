@@ -112,5 +112,12 @@ body {
 .app-view {
   padding: 20px;
   overflow: auto;
+  .code {
+    padding: 10px;
+    background: #000;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+  }
 }
 </style>
