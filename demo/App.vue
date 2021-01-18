@@ -10,7 +10,7 @@
           <div 
             class="menu-item menu-child"
             v-for="childItem in item.children" 
-            :key="childItem.key"
+            :key="childItem.key + 'item'"
             :class="{active: childItem.key === $route.name}"
             @click="clickItem(childItem)">
             {{ childItem.name }}
@@ -100,16 +100,19 @@ body {
 
   .menu-child {
     padding: 0 30px;
+    border-right: 2px solid transparent;
     cursor: pointer;
     &.active,
     &:hover {
       border-right: 2px solid #4085ed;
       color: #4085ed;
+      background-color: #e7f1ff;
     }
   }
 }
 
 .app-view {
+  flex: 1;
   padding: 20px;
   overflow: auto;
   .code {
