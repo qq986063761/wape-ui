@@ -34,6 +34,10 @@ export default {
             {
               key: 'textEllipsis',
               name: '文本溢出省略'
+            },
+            {
+              key: 'sticky',
+              name: '粘性布局'
             }
           ]
         }

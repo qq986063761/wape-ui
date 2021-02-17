@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import textEllipsis from '../views/textEllipsis'
+import sticky from '../views/sticky'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,11 @@ const routes = [
     path: '/textEllipsis',
     name: 'textEllipsis',
     component: textEllipsis
+  },
+  {
+    path: '/sticky',
+    name: 'sticky',
+    component: sticky
   }
 ]
 

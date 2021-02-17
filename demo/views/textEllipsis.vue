@@ -18,38 +18,38 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      content: ''
-    }
-  },
-  methods: {
-    click() {
-      if (!this.times) {
-        this.times = 20
-      } else {
-        this.times = this.times === 20 ? 2 : 20
+  export default {
+    data() {
+      return {
+        content: ''
       }
-      
-      let str = ''
-      for (let index = 0; index < this.times; index++) {
-        str += '点击我可以调整内容长度来测试内容变化后的溢出隐藏效果；'
-      }
-      this.content = str
     },
-  },
-  created() {
-    this.click()
+    methods: {
+      click() {
+        if (!this.times) {
+          this.times = 20
+        } else {
+          this.times = this.times === 20 ? 2 : 20
+        }
+        
+        let str = ''
+        for (let index = 0; index < this.times; index++) {
+          str += '点击我可以调整内容长度来测试内容变化后的溢出隐藏效果；'
+        }
+        this.content = str
+      },
+    },
+    created() {
+      this.click()
+    }
   }
-}
 </script>
 
 <style lang="scss">
-.text-ellipsis-page {
-  .w-text-ellipsis {
-    width: 500px;
-    cursor: pointer;
+  .text-ellipsis-page {
+    .w-text-ellipsis {
+      width: 500px;
+      cursor: pointer;
+    }
   }
-}
 </style>
