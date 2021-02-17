@@ -42,12 +42,19 @@ export default {
       const rect = container.getBoundingClientRect()
       const limit = !this.isFixedBottom ? (scrollRect.top + this.top) : (scrollRect.bottom - this.bottom)
 
+      // const scrollTop = this.scroller.scrollTop
+      // let isUp = false
+      // if (this.oldScrollTop !== undefined) {
+      //   isUp = scrollTop < this.oldScrollTop
+      // }
+      // this.oldScrollTop = this.scroller.scrollTop
+
       // 如果粘性容器超出范围就固定
       const isOut = !this.isFixedBottom && wrapRect.top < limit || this.isFixedBottom && wrapRect.bottom > limit
       if (!isOut) {
-        const isReset = this.oldScrollTop !== undefined &&
-          (!this.isFixedBottom && this.scroller.scrollTop < this.oldScrollTop ||
-          this.isFixedBottom && this.scroller.scrollTop > this.oldScrollTop)
+        const isReset = this.outScrollTop !== undefined &&
+          (!this.isFixedBottom && this.scroller.scrollTop < this.outScrollTop ||
+          this.isFixedBottom && this.scroller.scrollTop > this.outScrollTop)
         // 如果滚动到了之前的位置就还原
         if (isReset) {
           this.outStyle = null
@@ -57,7 +64,7 @@ export default {
       }
 
       // 超出范围后记录一下之前的状态，方便滚动过程中还原
-      this.oldScrollTop = this.scroller.scrollTop
+      this.outScrollTop = this.scroller.scrollTop
       // 设置样式完成固定
       this.outStyle = {
         height: rect.height + 'px'
