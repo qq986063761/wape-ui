@@ -1,6 +1,6 @@
 {
   "name": "wape-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "用于学习组件库开发的项目",
   "main": "dist/wape-ui.js",
   "scripts": {
