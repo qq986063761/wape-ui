@@ -6,6 +6,7 @@
       </div>
       <w-sticky 
         :top="10"
+        :bottom="10"
         :scroller="scroller">
         <div class="content">
           需要固定部分

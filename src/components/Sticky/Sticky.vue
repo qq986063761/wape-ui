@@ -40,46 +40,47 @@ export default {
       const wrapRect = this.$el.getBoundingClientRect()
       const scrollRect = this.scroller.getBoundingClientRect()
       const rect = container.getBoundingClientRect()
-      const limit = !this.isFixedBottom ? (scrollRect.top + this.top) : (scrollRect.bottom - this.bottom)
-
-      // const scrollTop = this.scroller.scrollTop
-      // let isUp = false
-      // if (this.oldScrollTop !== undefined) {
-      //   isUp = scrollTop < this.oldScrollTop
-      // }
-      // this.oldScrollTop = this.scroller.scrollTop
+      const scrollTop = this.scroller.scrollTop
+      const topLimit = scrollRect.top + this.top
+      const bottomLimit = scrollRect.bottom - (this.bottom || 0)
 
       // 如果粘性容器超出范围就固定
-      const isOut = !this.isFixedBottom && wrapRect.top < limit || this.isFixedBottom && wrapRect.bottom > limit
+      const isOutTop = wrapRect.top < topLimit
+      const isOutBottom = this.isFixedBottom && wrapRect.bottom > bottomLimit
+      const isOut = isOutTop || isOutBottom
       if (!isOut) {
-        const isReset = this.outScrollTop !== undefined &&
-          (!this.isFixedBottom && this.scroller.scrollTop < this.outScrollTop ||
-          this.isFixedBottom && this.scroller.scrollTop > this.outScrollTop)
+        const isReset = this.outScrollTop !== null && (scrollTop < this.outScrollTop || scrollTop > this.outScrollTop)
         // 如果滚动到了之前的位置就还原
         if (isReset) {
           this.outStyle = null
           this.containerStyle = null
+          this.outScrollTop = null
         }
         return
       }
-
+      
       // 超出范围后记录一下之前的状态，方便滚动过程中还原
-      this.outScrollTop = this.scroller.scrollTop
-      // 设置样式完成固定
-      this.outStyle = {
-        height: rect.height + 'px'
-      }
-      this.containerStyle = {
-        position: 'fixed',
-        top: (this.isFixedBottom ? (limit - rect.height) : limit) + 'px',
-        left: rect.left + 'px',
-        width: rect.width + 'px',
-        zIndex: 1
+      if (this.outScrollTop === null) {
+        this.outScrollTop = scrollTop
+
+        // 设置样式完成固定
+        this.outStyle = {
+          height: rect.height + 'px'
+        }
+        this.containerStyle = {
+          position: 'fixed',
+          top: (isOutBottom ? (bottomLimit - rect.height) : topLimit) + 'px',
+          left: rect.left + 'px',
+          width: rect.width + 'px',
+          zIndex: 1
+        }
       }
     },
     init() {
       if (!this.scroller) return
       this.scroller.addEventListener('scroll', this.update)
+
+      this.outScrollTop = null
       this.isFixedBottom = this.bottom !== undefined
       if (this.isFixedBottom) this.update()
     }
