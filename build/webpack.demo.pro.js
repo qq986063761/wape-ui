@@ -1,21 +1,16 @@
 const path = require('path')
-const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const commonConfig = require('./webpack.common.js')
 
 module.exports = {
+  mode: 'production',
   entry: {
     app: './demo/main.js'
   },
   output: {
     path: path.resolve(__dirname, '../docs'),
     filename: '[name]_[hash].js'
-  },
-  devServer: {
-    host: '0.0.0.0',
-    port: 9000,
-    hot: true
   },
   module: {
     rules: [
@@ -31,7 +26,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       template: './demo/index.html',

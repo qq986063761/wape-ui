@@ -5,6 +5,7 @@
   "main": "dist/wape-ui.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.demo.js",
+    "build:docs": "webpack --config ./build/webpack.demo.pro.js",
     "build:dev": "rimraf dist/wape-ui.js && webpack --config ./build/webpack.pro.dev.js",
     "build:pro": "rimraf dist/wape-ui.min.js && webpack --config ./build/webpack.pro.js",
     "build:all": "rimraf dist && npm run build:dev && npm run build:pro"
