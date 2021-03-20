@@ -1,9 +1,11 @@
 import TextEllipsis from "./components/TextEllipsis"
 import Sticky from "./components/Sticky"
+import Drag from "./components/Drag"
 
 const components = [
   TextEllipsis,
-  Sticky
+  Sticky,
+  Drag
 ]
 
 const install = function(Vue) {
@@ -18,5 +20,6 @@ if (typeof window !== "undefined" && window.Vue) {
 export default {
   install,
   TextEllipsis,
-  Sticky
+  Sticky,
+  Drag
 }

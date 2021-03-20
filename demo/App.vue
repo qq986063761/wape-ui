@@ -38,6 +38,10 @@ export default {
             {
               key: 'sticky',
               name: '粘性布局'
+            },
+            {
+              key: 'drag',
+              name: '拖拽元素'
             }
           ]
         }
