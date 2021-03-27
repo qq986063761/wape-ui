@@ -24,14 +24,16 @@
     },
     methods: {
       find: debounce(function (event) {
-        this.$emit("find", event)
+        this.$emit('find', event)
       }),
       onMoving(event) {
+        if (!this.dragging) return
+
         // 更新位置
         const translate3d = `translate(${event.clientX - this.prevX}px, ${event.clientY - this.prevY}px)`
         this.style = { transform: translate3d }
         
-        this.$emit("dragging", event)
+        this.$emit('dragging', event)
         
         // 寻找目标元素
         this.find(event)
@@ -43,16 +45,16 @@
 
         // 重置状态
         this.dragging = false
-        this.style = { transition: "all .2s ease" }
+        this.style = { transition: 'all .2s ease' }
         document.body.style.cursor = this.prevCursor
         document.body.style.userSelect = this.prevUserSelect
 
-        this.$emit("end", event)
+        this.$emit('end', event)
       },
       onMouseDown(event) {
         if (this.disabled) return
 
-        this.$emit("start", event)
+        this.$emit('start', event)
 
         // 监听事件
         document.addEventListener('mousemove', this.onMoving)
